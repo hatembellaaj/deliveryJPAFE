@@ -13,5 +13,19 @@ export class RestaurantsService {
     return this.http.get<Restaurant[]>('http://192.168.1.108:8080/Restaurant');
   }
 
+  create(payload: Restaurant) {
+    return this.http.post<Restaurant>('http://192.168.1.108:8080/Restaurant', payload);
+  }
 
+  getById(id: number) {
+    return this.http.get<Restaurant>(`http://192.168.1.108:8080/Restaurant/${id}`);
+   }
+    
+   update(payload:Restaurant){
+    return this.http.put(`http://192.168.1.108:8080/Restaurant`,payload);
+   }
+
+   delete(id:number){
+    return this.http.delete<Restaurant>(`http://192.168.1.108:8080/Restaurant/${id}`);
+ }   
 }
